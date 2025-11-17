@@ -6,6 +6,7 @@ services:
     
     volumes:
       - ./tutorials:/workspace/tutorials
+      - ./monitoring:/workspace/monitoring
     
     tty: true
 
