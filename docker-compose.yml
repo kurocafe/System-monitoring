@@ -3,11 +3,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    
+    pid: "host"
     volumes:
       - ./tutorials:/workspace/tutorials
       - ./monitoring:/workspace/monitoring
-    
+      - /proc:/host_proc:ro
+      - /:/host_root:ro
+    environment:
+      - GOMONITOR_PROC=/host_proc
+      - GOMONITOR_ROOT=/host_root
     tty: true
 
 
